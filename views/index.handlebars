@@ -1,0 +1,39 @@
+
+{{#if user}}
+  <div class="jumbotron">
+    <h1 class="display-4">Olá <strong>{{user.nome}}</strong>,  Bem-vindo ao meu Blog do Node</h1>
+    <p class="lead">Esse esse um blog dedicado a ensinar e compartilhar conhecimento no desenvolvimento de software.</p>
+    <hr class="my-4">
+    <p>Para mais dicas e dúvidas busque nossa área de contato, espero que goste!</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/categorias" role="button">Veja as Categorias</a>
+    </p>
+  </div>
+{{else}}
+  <div class="jumbotron">
+    <h1 class="display-4">Bem Vindo ao meu Blog do Node</h1>
+    <p class="lead">Esse esse um blog dedicado a ensinar e compartilhar conhecimento no desenvolvimento de software.</p>
+    <hr class="my-4">
+    <p>Para mais dicas e dúvidas busque nossa área de contato, espero que goste!</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Crie uma conta</a>
+    </p>
+  </div>
+{{/if}}
+<hr>
+
+<h2>Postagens recente: </h2>
+{{#each postagens}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>Título: {{titulo}}</h3>
+        <p>Descrição: {{descricao}}</p>
+        <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia Mais</button></a>
+        <hr>
+        <small>Categoria: {{categoria.nome}}</small>
+      <small>Data de publicação: {{data}}</small>
+    </div>
+</div>
+{{else}}
+    <h5>Nehuma Postagem</h5>
+{{/each}}
