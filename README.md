@@ -56,6 +56,11 @@ Copie e cole isso no seu conteúdo de remarcação e é isso. Simples!
 Instale o express
 
 ```md
+npm install -g npm
+```
+ 
+ 
+```md
 npm install —-save express
 ```
 
