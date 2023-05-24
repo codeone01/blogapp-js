@@ -74,7 +74,6 @@ Blogapp
  │	        │
   <br>
  │	         eAdmin.js
-  <br>
  │    
  <br> 
  ├───models
