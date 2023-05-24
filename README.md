@@ -1,20 +1,21 @@
 <p align="center">
  <img width="100px" src="https://res.cloudinary.com/anuraghazra/image/upload/v1594908242/logo_ccswme.svg" align="center" alt="GitHub Readme Stats" />
- <h2 align="center">GitHub Blog-app Express</h2>
- <p align="center">Crie um Blog app com express e MongoDB para fazer Deploy!</p>
+ <h2 align="center">GitHub Blog-app Express MongoDB</h2>
+ <p align="center">Crie um Blog app Completo com Node.js, Express, MongoDB, Bootstrap e Handlebars! Utilizei o Windows com Vscode.</p>
+ <p align="center">Caso tenha gostado e ajudado considere dar uma ⭐, Obrigado! </p>
 </p>
   <p align="center">
-    <a href="https://github.com/anuraghazra/github-readme-stats/actions">
-      <img alt="Testes aprovados" src="https://github.com/anuraghazra/github-readme-stats/workflows/Test/badge.svg" />
+    <a href="https://github.com/codeone01/blogapp-js/actions">
+      <img alt="Testes aprovados" src="https://github.com/codeone01/blogapp-js/workflows/Test/badge.svg" />
     </a>
-    <a href="https://codecov.io/gh/anuraghazra/github-readme-stats">
-      <img src="https://codecov.io/gh/anuraghazra/github-readme-stats/branch/master/graph/badge.svg" />
+    <a href="https://codecov.io/gh/code/blogapp-js">
+      <img src="https://codecov.io/gh/codeone01/blogapp-js/branch/main/graph/badge.svg" />
     </a>
     <a href="https://github.com/anuraghazra/github-readme-stats/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/anuraghazra/github-readme-stats?color=0088ff" />
+      <img alt="Issues" src="https://img.shields.io/github/issues/codeone01/blogapp-js?color=0088ff" />
     </a>
     <a href="https://github.com/anuraghazra/github-readme-stats/pulls">
-      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/anuraghazra/github-readme-stats?color=0088ff" />
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/codeone01/blogapp-js?color=0088ff" />
     </a>
     <br />
     <br />
@@ -29,9 +30,9 @@
   <p align="center">
     <a href="#demonstração">Ver demonstração</a>
     ·
-    <a href="https://github.com/anuraghazra/github-readme-stats/issues/new/choose">Reportar erros</a>
+    <a href="https://github.com/codeone01/blogapp-js/issues/new/choose">Reportar erros</a>
     ·
-    <a href="https://github.com/anuraghazra/github-readme-stats/issues/new/choose">Solicitar recursos</a>
+    <a href="https://github.com/codeone01/blogapp-js/issues/new/choose">Solicitar recursos</a>
   </p>
   <p align="center">
     <a href="/docs/readme_pt-BR.md">Português Brasileiro</a>
@@ -41,28 +42,118 @@
 
 # Características
 
-- [Blogapp, express](#cartão-de-estatísticas-do-github)
-- [mongoDB](#pins-extras-do-github)
-- [Cartão de principais linguagens de programação](#cartão-de-principais-linguagens-de-programação)
-- [Deploy Web](#estatística-semanal-wakatime)
-- [2 Models](#temas)
-- [Autenticação](#personalização)
-- [Bootstrap](#implante-em-sua-própria-instância-do-vercel)
+- [Árvore pastas-e-arquivos](#árvore-pastas-arquivos)
+- [Instalação](#instalação)
+- [MongoDB](#mongo-db)
+- [Bootstrap](#bootstrap)
+- [handlebars](#handlebars)
+- [Admin](#admin)
+- [Categoria CRUD](#categoria-crud)
+- [Postagem CRUD](#postagem-crud)
+- [usuário CRUD](#usuario-crud)
+- [Middlewares](#middlewares)
+- [Erros](#erros)
+- [Autenticação](#autenticação)
+- [Deploy](#deploy)
 
-# Installando o modulo Express
+#### Árvore pastas e arquivos
+Blogapp
+ ├───node_modules
+ ├───config
+ │	        │
+ │	         auth.js
+ │          db.js
+ ├───helpers
+ │	        │
+ │	         eAdmin.js
+ │    
+ ├───models
+ │	        │
+ │	         Categorias.js
+ │          Postagem.js
+ │          Usuario.js
+ ├───routes
+ │	       │
+ │	        admin.js
+ │         usuario.js
+ ├───public
+ │ 	└───css
+ │		      │
+ │		       arquivos-bootstrap.css
+ │ 	└───img
+ │ 	└───js
+ │		     │
+ │		      arquivos-bootstrap.js
+ ├───views
+ │ 	└───admin
+ │	         │
+ │	          index.handlebars
+ │	          categorias.handlebars 
+ │	          addcategorias.handlebars 
+ │	          editcategorias.handlebars
+ │	          postagens.handlebars 
+ │	          addpostagens.handlebars 
+ │	          editpostagens.handlebars
+ │ 	└───categorias
+ │	              │
+ │	               index.handlebars
+ │	               postagens.handlebars
+ │ 	└───posatagem
+ │	             │
+ │	              index.handlebars
+ │ 	└───usuarios
+ │	            │
+ │	             login.handlebars
+ │	             registro.handlebars 
+ │
+ │ 	└───layouts
+ │	           │
+ │	            main.handlebars
+ │ 	└───partials
+ │	            │
+ │	             _msg.handlebars
+ │	             _navbar.handlebars
+  .env
+  .gitignore
+  app.js
+  package-lock.json
+  package.json
+ 
+ 
+ 
+# Instalação
 
-Copie e cole isso no seu conteúdo de remarcação e é isso. Simples!
-
-Instale o express
-
-```md
+Caso tenha feito o Fork ou baixado os arquivos, como o projeto é em Node.js é necessário tê-lo insatalado caso não tenha faça o download no [site](https://nodejs.org/en/download). Para o passo a passo de installação recomendo esse [artigo](https://radixweb.com/blog/installing-npm-and-nodejs-on-windows-and-mac). 
+ E para gerenciar os pacotes usaremos npm use o comando a baixo no cmd e o [link](https://docs.npmjs.com/about-npm-versions) para mais informações.
+ ```md
 npm install -g npm
 ```
- 
- 
+ Agora seguindo instale os pacotes e módulos usados na aplicação:
+
+Instale o Express
+
 ```md
 npm install —-save express
 ```
+ 
+ Instale o express-handlebars
+
+```md
+npm install --save express-handlebars
+```
+Instale o Mongoose
+ Antes de instalar os pacotes mongoose terá que instalar o MongoDB no computador encontralar o download nesse [link](https://www.mongodb.com/try/download/community)
+
+```md
+npm install --save mongoose
+```
+
+ Instale o express
+
+```md
+npm install —-save express
+```
+
 
 _Nota: As classificações são baseadas nas estatísticas do usuário, veja [src/calculateRank.js](../src/express.js)_
 
@@ -140,15 +231,4 @@ SESSION_SECRET = ''
 ```
 
 
-
-#### Todos os temas predefinidos :
-
-dark, radical, merko, gruvbox, tokyonight, onedark, cobalt, synthwave, highcontrast, dracula
-
-<img src="https:// alt="GitHub Readme Blogapp" width="600px"/>
-
-
-#### Opções comuns
-
-- `npm install –-save mongoose` - Cor do título do cartão _(hex color)_
 
