@@ -58,67 +58,126 @@
 
 #### Árvore pastas e arquivos
 Blogapp
+  <br>
  ├───node_modules
  <br>
  ├───config
+  <br>
  │	        │
+  <br>
  │	         auth.js
+  <br>
  │          db.js
+  <br>
  ├───helpers
+  <br>
  │	        │
+  <br>
  │	         eAdmin.js
+  <br>
  │    
+ <br> 
  ├───models
+ <br> 
  │	        │
+ <br> 
  │	         Categorias.js
+ <br> 
  │          Postagem.js
+ <br> 
  │          Usuario.js
+  <br>
  ├───routes
+  <br>
  │	       │
+  <br>
  │	        admin.js
+  <br>
  │         usuario.js
+ <br>
  ├───public
+  <br>
  │ 	└───css
+  <br>
  │		      │
+ <br> 
  │		       arquivos-bootstrap.css
+ <br>
  │ 	└───img
+ <br>
  │ 	└───js
+ <br>
  │		     │
+ <br>
  │		      arquivos-bootstrap.js
+ <br>
  ├───views
+ <br>
  │ 	└───admin
+ <br>
  │	         │
+ <br>
  │	          index.handlebars
+ <br>
  │	          categorias.handlebars 
+ <br>
  │	          addcategorias.handlebars 
+ <br>
  │	          editcategorias.handlebars
+ <br>
  │	          postagens.handlebars 
+ <br>
  │	          addpostagens.handlebars 
+ <br>
  │	          editpostagens.handlebars
+ <br>
  │ 	└───categorias
+ <br>
  │	              │
+ <br>
  │	               index.handlebars
+ <br>
  │	               postagens.handlebars
+ <br>
  │ 	└───posatagem
+ <br>
  │	             │
+ <br>
  │	              index.handlebars
+ <br>
  │ 	└───usuarios
+ <br>
  │	            │
+ <br>
  │	             login.handlebars
+ <br>
  │	             registro.handlebars 
+ <br>
  │
+ <br>
  │ 	└───layouts
+ <br>
  │	           │
+ <br>
  │	            main.handlebars
+ <br>
  │ 	└───partials
+ <br>
  │	            │
+ <br>
  │	             _msg.handlebars
+ <br>
  │	             _navbar.handlebars
-  .env
-  .gitignore
-  app.js
-  package-lock.json
-  package.json
+ <br>
+ .env
+ <br>
+ .gitignore
+ <br>
+ app.js
+ <br>
+ package-lock.json
+ <br>
+ package.json
  
  
  
