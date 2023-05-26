@@ -63,8 +63,7 @@ Blogapp
  <br>
  ├───config
   <br>
- │	        │
-  <br>
+ │	        │<br>
  │	         auth.js
   <br>
  │          db.js
