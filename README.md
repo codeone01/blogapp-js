@@ -152,8 +152,6 @@ Blogapp
  <br>
  │	             registro.handlebars 
  <br>
- │
- <br>
  │ 	└───layouts
  <br>
  │	           │
