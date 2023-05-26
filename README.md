@@ -205,7 +205,8 @@ Instale o Mongoose
 npm install --save mongoose
 ```
 
- Os esqueleto inicial do app no arquivo app.js
+ # Configurando Express e Handlebars
+ Os esqueleto inicial do app no arquivo app.js:
  
 ```jsx
 // carregando módulos
@@ -227,11 +228,60 @@ const PORT = 8081
 app.listen(PORT, ()=>{
     console.log('SERVIDOR ON! ')
 })
-
 ```
+No arquivo main.handlebars:
+ 
+ ```jsx
+  <!DOCTYPE html>
+ <html lang="pt-br">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Blog NodeJS</title>
+ </head>
+ <body>
+     {{{body}}}
+ </body>
+ </html>
+ ```
+ 
+ Na pasta routes, no arquivo admin.js:
+ 
+```jsx
+ const express = require('express')
+ const router = express.Router()
 
-_Nota: As classificações são baseadas nas estatísticas do usuário, veja [src/calculateRank.js](../src/express.js)_
 
+ router.get('/',(req,res) => {
+     res.send('Página principal do painel do ADM')
+ })
+
+
+ router.get('/posts',(req,res) => {
+     res.send('Página de posts')
+ })
+
+
+ router.get('/categoria',(req,res) => {
+     res.send('Página de categorias')
+ })
+ module.exports = router
+```
+ E para chamar a rota admin criada, adicione a linha a seguir no app.js:
+ ```jsx
+ // carregando módulos
+ const admin = require('./routes/admin')
+ 
+  // Rotas
+ app.use('/admin', admin)
+```
+ Agora pode rodar no terminal o comando:
+ 
+ ```shell
+ nodemon app.js
+ ```
+ 
 ### Express Handlebars
 
 Para ocultar estatísticas individualmente, você pode passar um parâmetro de consulta `?hide=` com valores separados por vírgula.
