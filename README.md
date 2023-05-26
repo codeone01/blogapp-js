@@ -42,7 +42,7 @@
 
 # Características
 
-- [Árvore pastas-e-arquivos](#árvore-pastas-arquivos)
+- [Árvore pastas e arquivos](#árvore-pastas-arquivos-completo)
 - [Instalação](#instalação)
 - [MongoDB](#mongo-db)
 - [Bootstrap](#bootstrap)
@@ -55,6 +55,8 @@
 - [Erros](#erros)
 - [Autenticação](#autenticação)
 - [Deploy](#deploy)
+- [Todos os comandos para instalação](#Todos-os-comandos-para-instalação)
+- [Sugestão de melhoras](#sugestão-de-melhoras)
 
 #### Árvore pastas e arquivos
 Blogapp
@@ -206,7 +208,7 @@ npm install --save mongoose
 ```
 
  # Configurando Express e Handlebars
- Os esqueleto inicial do app no arquivo app.js:
+ O esqueleto inicial do app no arquivo app.js:
  
 ```jsx
 // carregando módulos
@@ -269,6 +271,7 @@ No arquivo main.handlebars:
  module.exports = router
 ```
  E para chamar a rota admin criada, adicione a linha a seguir no app.js:
+ 
  ```jsx
  // carregando módulos
  const admin = require('./routes/admin')
@@ -281,78 +284,61 @@ No arquivo main.handlebars:
  ```shell
  nodemon app.js
  ```
+ Abra no navegador no link http://localhost:8081/admin/posts
  
-### Express Handlebars
-
-Para ocultar estatísticas individualmente, você pode passar um parâmetro de consulta `?hide=` com valores separados por vírgula.
-
-> Opções: `&hide=stars,commits,prs,issues,contribs`
-
-```md
-npm install —-save express-handlebars
+### Bootstrap
+ 
+ Para instalar os arquivos do Bootstrap baixe no site oficial [aqui](https://getbootstrap.com/docs/5.0/getting-started/download/)
+ Após o download, extraia os arquivos e copie a pasta css e js para a pasta public. Linkando essas pastas ao nosso app, adicione as linhas.
+ 
+  ```jsx
+ // carregando módulos
+ const path = require('path')
+ 
+  // Configuração
+ app.use(express.static(path.join(__dirname,"public")))
 ```
 
-### Adicionando EXpress
 
-Adicione a contagem de todas as suas contribuições privadas à contagem total de confirmações usando o parâmetro de consulta `?count_private=true`.
+### Todos os comandos para instalação
 
-_Nota: Se você estiver implantando este projeto, as contribuições privadas serão contadas por padrão; caso contrário, você precisará compartilhar suas contagens de contribuições privadas._
-
-> Opções: `&count_private=true`
-
-```md
-npm install —-save express
-```
-
-###  My SQL
-
-Para habilitar ícones, basta utilizar o parâmetro `show_icons=true` na sua requisição, da seguinte forma:
-
-```md
-npm install —-save mysql2
-```
-
-### Run
-
-Módulos para rodar o Blogapp Express mongoDB [configuração manual](#personalização).
-
-
-```md
+```shell
 npm install —-save sequelize
 ```
 
-```md
+```shell
 npm install –-save mongoose
 ```
-```md
+```shell
 npm install --save express-session
 ```
-```md
+```shell
 npm install --save connect-flash
 ```
-```md
+```shell
 npm install --save bcryptjs
 ```
-```md
+```shell
 npm install --save passport
 ```
 
-```md
+```shell
 npm install --save passport-local
 ```
 
-```md
+```shell
 npm init
 ```
 
-```md
+```shell
 npm install --save dotenv
 ```
 #### Crie o arquivo .env :
+ 
 ```md
 MONGO_URI = ''
-MONGO_LOCAL_URI = ''
-SESSION_SECRET = ''
+MONGO_LOCAL_URI = 'mongodb://127.0.0.1:27017/<nome-do-banco-dados>'
+SESSION_SECRET = '<crie-uma-senha>'
 ```
 
 
