@@ -207,6 +207,7 @@ npm install --save mongoose
 
  Os esqueleto inicial do app no arquivo app.js
  
+```jsx
 // carregando módulos
     const express = require('express')
     const handlebars = require('express-handlebars')
@@ -227,7 +228,7 @@ app.listen(PORT, ()=>{
     console.log('SERVIDOR ON! ')
 })
 
-
+```
 
 _Nota: As classificações são baseadas nas estatísticas do usuário, veja [src/calculateRank.js](../src/express.js)_
 
