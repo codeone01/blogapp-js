@@ -118,14 +118,11 @@
         res.send('Error 404!')
     })
 
-    app.get('/posts', (req,res) => {
-        res.send('Posts')
-    })
 
     app.use('/admin', admin)
     app.use('/usuarios', usuarios)
 // Outros
-const PORT = process.env.PORT || 8081
+const PORT = process.env.MONGO_URI || 8080
 app.listen(PORT, ()=>{
-    console.log('SERVIDOR rodando!')
+    console.log('SERVIDOR rodando! em http://localhost:8080')
 })
