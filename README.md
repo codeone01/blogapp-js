@@ -63,7 +63,8 @@ Blogapp
  <br>
  ├───config
   <br>
- │	        │<br>
+ │	        │
+ <br>
  │	         auth.js
   <br>
  │          db.js
@@ -204,10 +205,17 @@ Instale o Mongoose
 npm install --save mongoose
 ```
 
- Instale o express
+ Os esqueleto inicial do app no arquivo app.js
+ 
+```jsx
+import { createRoot } from 'react-dom/client';
 
-```md
-npm install —-save express
+function HelloMessage({ name }) {
+  return <div>Hello {name}</div>;
+}
+
+const root = createRoot(document.getElementById('container'));
+root.render(<HelloMessage name="Taylor" />);
 ```
 
 
