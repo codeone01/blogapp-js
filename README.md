@@ -207,16 +207,26 @@ npm install --save mongoose
 
  Os esqueleto inicial do app no arquivo app.js
  
-```jsx
-import { createRoot } from 'react-dom/client';
+// carregando módulos
+    const express = require('express')
+    const handlebars = require('express-handlebars')
+    const app = express()
+  //const mongoose = require('mongoose')
 
-function HelloMessage({ name }) {
-  return <div>Hello {name}</div>;
-}
 
-const root = createRoot(document.getElementById('container'));
-root.render(<HelloMessage name="Taylor" />);
-```
+// Configurações
+    // Handlebars
+        app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+        app.set('view engine', 'handlebars')
+// Rotas
+
+
+// Outros
+const PORT = 8081
+app.listen(PORT, ()=>{
+    console.log('SERVIDOR ON! ')
+})
+
 
 
 _Nota: As classificações são baseadas nas estatísticas do usuário, veja [src/calculateRank.js](../src/express.js)_
