@@ -15,6 +15,9 @@
 - [handlebars](#handlebars)
 - [Admin](#admin)
 - [Categoria CRUD](#categoria-crud)
+   - [Model Categoria](#model-categoria)
+   - [Route Categoria](#route-categoria)
+   - [View Categoria](#view-categoria)
 - [Postagem CRUD](#postagem-crud)
 - [usuário CRUD](#usuario-crud)
 - [Middlewares](#middlewares)
@@ -299,6 +302,10 @@ No arquivo main.handlebars:
   </div>
 </nav>
 ```
+
+### CRUD de Categoria
+
+Categoria e postagens são criadas apenas pelos Admins. Terá a rota de criar, editar, apagar e listar categorias. Para o usuário comum sendo apenas listado.
 
 ### Model Categoria
 
