@@ -264,7 +264,35 @@ No arquivo main.handlebars:
   // Configuração
  app.use(express.static(path.join(__dirname,"public")))
 ```
-
+ 
+ Cria a pasta partials para evitar repetição de código pode criar partes e adicina-las ao main.handlebars, criaremos a navbar que deve aparecer em todas as telas e depois os erros, crie o arquivo _navbar.handlebars e usaremos um template do Bootstrap [navbars](https://getbootstrap.com/docs/5.0/getting-started/download/)
+ 
+ ```jsx
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Blog do Node</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Categorias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Registro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+```
 
 ### Todos os comandos para instalação
 
