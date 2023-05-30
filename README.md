@@ -298,7 +298,196 @@ No arquivo main.handlebars:
     </div>
   </div>
 </nav>
+```
 
+### Model Categoria
+
+Para criar o primeiro model import mongoose em app.js com a linha 
+
+```jsx
+const mongoose = require('mongoose')
+```
+E no cometário de Configurações o código
+
+```jsx
+mongoose.Promise = global.promise;
+        mongoose.connect('mongodb://127.0.0.1:27017/blogapp').then(() => {
+            console.log('Conectado!')
+        }).catch((err) => {
+            console.log("houve um erro"+err)
+        })
+
+```
+
+Agora na posta models crie o arquivo Categoria.js é uma boa prática no model de banco de dados o arquivo começar com letra maiúscula e no singular. O código será
+
+```jsx
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema;
+
+
+const Categoria = new Schema({
+    nome: {
+        type: String,
+        require: true
+    },
+    slug: {
+        type: String,
+        require: true
+    },
+    date: {
+        type: Date,
+        default: Date.now()
+    }
+})
+
+
+mongoose.model('categorias', Categoria)
+```
+
+### Route categorias
+
+Criar categoria, temos que ter uma rota com o get com o forms e uma post para enviar os dados ao banco de dados, no arquivo app.js
+
+```jsx
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
+```
+
+E em admin.js importar o mongoose e model Categoria além disso, criar a rota POST
+
+```jsx
+const mongoose = require('mongoose')
+require('../models/Categoria')
+const Categoria = mongoose.model('categorias')
+```
+
+Criando a rota post
+```jsx
+router.post('/categorias/nova', (req,res) => {
+    const novaCategoria = {
+        nome: req.body.nome,
+        slug: req.body.slug
+    }
+
+
+    new Categoria(novaCategoria).save().then(()=>{
+        console.log('Categoria criada com sucesso!')
+    }).catch((err)=>{
+        console.log('Falha ao criar a categoria' + err)
+    })
+})
+```
+Vá a http://localhost:8081/admin/categorias/add para testar!
+
+### Middlewares
+
+Como o nome diz, ele fica no meio entre a request e response, para validar alguma regra de negócio. No nosso caso iremos validar os e mostrar mensagem de erro ou sucesso. Para isso deve instalar e importar no app.js duas bibliotecas.
+
+No terminal
+```shell
+ npm install --save express-session
+ npm install --save connect-flash
+
+```
+No arquivo app.js
+```jsx
+ const session = require('express-session')
+ const flash = require('connect-flash')
+```
+
+Agora na parte de configurações app.js adicione o middleware
+
+```jsx
+    // Middleware
+    app.use((req, res, next) => {
+        res.locals.success_msg = req.flash('success_msg')
+        res.locals.error_msg = req.flash('error_msg')
+        next()
+    })
+
+```
+
+Para criar as validações como exemplo ao criar uma Categoria no arquivo de Routes admin.js
+
+```jsx
+var erros = []
+
+
+    if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null){
+        erros.push({texto:'Nome inválido.'})
+    }
+
+
+    if(!req.body.slug || typeof req.body.slug == undefined || req.body.slug == null){
+        erros.push({texto:'Slug inválido.'})
+    }
+
+
+    if(req.body.nome.length < 2){
+        erros.push({texto:'Nome da categoria muito pequeno.'})
+    }
+
+
+    if(erros.length > 0){
+        res.render('admin/addcategorias',{erros: erros})
+    }else{
+        const novaCategoria = {
+            nome: req.body.nome,
+            slug: req.body.slug
+        }
+        new Categoria(novaCategoria).save().then(()=>{
+            res.redirect('/admin/categorias')
+        }).catch((err)=>{
+            console.log('Falha ao criar a categoria' + err)
+        })
+    }
+```
+E na view, no arquivo addcategorias, onde para cada erro irá exibir uma aviso com o design Bootstrap, e o texto do erro
+
+```jsx
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+```
+Após enviar o formulário vazio deve aparecer na tela os erros
+
+E para listar as categorias crie a rota /categorias com o código
+
+```jsx
+router.get('/categorias', (req,res) => {
+    Categoria.find().lean().then((categorias) => {
+        res.render('admin/categorias', {categorias: categorias})
+    }).catch((err) => {
+        req.flash('error_msg', 'houve um erro ao listar as categorias')
+        res.redirect('/admin')
+    })
+})
+```
+
+### View Categorias
+
+E no arquivo categorias.handlebars na pasta views/admin
+```jsx
+<h2>Lista de categorias: </h2>
+<hr>
+<a href="/admin/categorias/add"><button class="btn btn-success">Nova Categoria</button></a>
+{{#each categorias}}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>{{nome}}</h4>
+            <small>{{slug}}</small>
+        </div>
+    </div>
+{{else}}
+{{/each}}
+```
+Rode o server para testar
+
+```jsx
+nodemon app.js
 ```
 
 ### Todos os comandos para instalação
