@@ -496,6 +496,13 @@ Rode o server para testar
 ```jsx
 nodemon app.js
 ```
+### Model Postagem
+### Route Postagens
+### Views Postagens
+
+### Model Usuario
+### Route Usuarios
+### Views Usuarios
 
 ### Todos os comandos para instalação
 
