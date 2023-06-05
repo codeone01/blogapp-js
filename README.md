@@ -504,6 +504,10 @@ nodemon app.js
 ### Route Usuarios
 ### Views Usuarios
 
+### Auth
+### encripty password
+### errors message
+
 ### Todos os comandos para instalação
 
 ```shell
