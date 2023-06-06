@@ -1,5 +1,4 @@
 <p align="center">
- <img width="100px" src="https://res.cloudinary.com/anuraghazra/image/upload/v1594908242/logo_ccswme.svg" align="center" alt="GitHub Readme Stats" />
  <h2 align="center">GitHub Blog-app Express MongoDB</h2>
  <p align="center">Crie um Blog app Completo com Node.js, Express, MongoDB, Bootstrap e Handlebars! Utilizei o Windows com Vscode.</p>
  <p align="center">Caso tenha gostado e ajudado considere dar uma ⭐, Obrigado! </p>
