@@ -4,7 +4,7 @@
  <p align="center">Crie um Blog app Completo com Node.js, Express, MongoDB, Bootstrap e Handlebars! Utilizei o Windows com Vscode.</p>
  <p align="center">Caso tenha gostado e ajudado considere dar uma ⭐, Obrigado! </p>
 </p>
-<p align="center">Gostou do projeto? Por favor considere <a href="https://www.paypal.me/anuraghazra">fazer uma doação</a> para ajudar a melhorá-lo!
+
 
 # Características
 
